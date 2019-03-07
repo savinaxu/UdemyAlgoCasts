@@ -8,29 +8,44 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
-function chunk(array, size) {
-    let result = [],
-        chunkSize = []
+//solution 1
+// function chunk(array, size) {
+//     let result = [],
+//         chunkSize = []
     
-    for (let i = 0; i < array.length; i++) {
-        if (i === array.length - 1) {
-            if (chunkSize.length === size) {
-                result.push(chunkSize)
-                chunkSize = []
-            }
-            chunkSize.push(array[i])
-            result.push(chunkSize)
+//     for (let i = 0; i < array.length; i++) {
+//         if (i === array.length - 1) {
+//             if (chunkSize.length === size) {
+//                 result.push(chunkSize)
+//                 chunkSize = []
+//             }
+//             chunkSize.push(array[i])
+//             result.push(chunkSize)
+//         } else {
+//             if (chunkSize.length === size) {
+//                 result.push(chunkSize)
+//                 chunkSize = []
+//                 chunkSize.push(array[i])
+//             } else {
+//                 chunkSize.push(array[i])
+//             }
+//         }  
+//     }
+//     return result
+// }
+
+//solution 2 
+function chunk(array, size) {
+    const chunked = []
+    for (let el of array) {
+        const last = chunked[chunked.length-1]
+
+        if (!last || last.length === size) {
+            chunked.push([el])
         } else {
-            if (chunkSize.length === size) {
-                result.push(chunkSize)
-                chunkSize = []
-                chunkSize.push(array[i])
-            } else {
-                chunkSize.push(array[i])
-            }
-        }  
+            last.push(el)
+        }
     }
-    return result
 }
 
 module.exports = chunk;

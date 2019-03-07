@@ -21,26 +21,36 @@
 //     return parseInt(result)
 // }
 
-//solution2
+//solution 2
 function reverseInt(n) {
-    let m, sum = 0
-    if (n > 0) {
-        while(n > 0) {
-            m = n % 10
-            sum = sum * 10 + m
-            n = Math.floor(n/10)
-        }
-    } else if (n < 0) {
-        n = Math.abs(n)
-        while(n > 0) {
-            m = n % 10
-            sum = sum * 10 + m
-            n = Math.floor(n/10)
-        }
-        sum = -sum
-    }
-    
-    return sum
+    const reversed = n.toString().split("").reverse().join("")
+    return parseInt(reversed) * Math.sign(n)
 }
+
+//solution3
+// function reverseInt(n) {
+//     let m, sum = 0
+//     if (n > 0) {
+//         while(n > 0) {
+//             m = n % 10
+//             sum = sum * 10 + m
+//             n = Math.floor(n/10)
+//         }
+//     } else if (n < 0) {
+//         n = Math.abs(n)
+//         while(n > 0) {
+//             m = n % 10
+//             sum = sum * 10 + m
+//             n = Math.floor(n/10)
+//         }
+//         sum = -sum
+//     }
+//     return sum
+// }
+
+
+//new learning: 
+// Math.sign(n) return 1 if the n is positive
+//              return -1 if the n is negitive
 
 module.exports = reverseInt;
