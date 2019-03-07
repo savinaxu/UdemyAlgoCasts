@@ -17,6 +17,20 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+    let result = "",
+        poundSign = "",
+        whiteSpace = ""
+    
+    for (let i = 1; i <= n; i++) {
+        poundSign += "#"
+        for (let j = n - i; j > 0; j--) {
+            whiteSpace += " "
+        }
+        result = poundSign + whiteSpace
+        console.log(result)
+        whiteSpace = ""
+    }
+}
 
 module.exports = steps;
